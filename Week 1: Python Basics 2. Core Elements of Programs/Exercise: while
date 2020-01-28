@@ -1,0 +1,54 @@
+#Exercise: while exercise 1
+#0.0/5.0 points (graded)
+#ESTIMATED TIME TO COMPLETE: 5 minutes
+
+#In this problem you'll be given a chance to practice writing some while loops.
+
+#1. Convert the following into code that uses a while loop.
+
+#print 2
+#prints 4
+#prints 6
+#prints 8
+#prints 10
+#prints Goodbye!
+
+x = 2
+while x < 11:
+  print(x)
+  x += 2
+print('Goodbye!')
+
+#Exercise: while exercise 2
+#0.0/5.0 points (graded)
+#ESTIMATED TIME TO COMPLETE: 5 minutes
+
+#2. Convert the following into code that uses a while loop.
+
+#prints Hello!
+#prints 10
+#prints 8
+#prints 6
+#prints 4
+#prints 2
+
+x = 10
+print('Hello!')
+while x > 1:
+  print(x)
+  x -= 2
+
+#Exercise: while exercise 3
+#0.0/5.0 points (graded)
+#ESTIMATED TIME TO COMPLETE: 5 minutes
+
+#3. Write a while loop that sums the values 1 through end, inclusive. end is a variable that we define for you. 
+#So, for example, if we define end to be 6, your code should print out the result:
+#21
+
+x = 0
+y = 0
+while y <= end:
+  x += y
+  y += 1
+print(x) 
