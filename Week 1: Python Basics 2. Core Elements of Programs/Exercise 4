@@ -33,7 +33,7 @@ num = 10
 while num > 3:
     num -= 1
     print(num) 
-#9, 8, 7, 6, 5, 4
+#9, 8, 7, 6, 5, 4, 3
 
 Question 4
 
