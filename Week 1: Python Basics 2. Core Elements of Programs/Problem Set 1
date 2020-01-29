@@ -51,3 +51,17 @@ for x in range(len(s)-1):
     currentsubstr = s[x+1]
   x += 1
 print('Longest substring in alphabetical order is: ', longestsubstr)
+
+#OR
+
+# s is predefined variable set to a string value
+current = ''
+longest = ''
+for i in range(len(s)):
+ if (s[i] >= s[i-1]):
+  current += s[i]
+ else:
+  current = s[i]
+ if len(current) > len(longest):
+  longest = current
+print("Longest substring in alphabetical order is: " + longest)
