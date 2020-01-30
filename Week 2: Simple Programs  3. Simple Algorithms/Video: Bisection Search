@@ -1,0 +1,37 @@
+#cube root of a number less than 1
+x = 0.8
+epsilon = 0.00001
+numguesses = 0
+low = x
+high = 1
+ans = (high + low)/2
+
+while abs(ans**3 - x) >= epsilon:
+  print('low = ', low, 'high = ', high, 'ans = ', ans)
+  numguesses += 1
+  if ans**3 < x:
+    low = ans
+  else:
+    high = ans
+  ans = (high +low)/2
+print('numguesses = ', numguesses)
+print(ans, 'is close to the cube root of ', x)
+
+#cube root of a number greater than 1
+x = 948
+epsilon = 0.0001
+numguesses = 0
+low = 1
+high = x
+ans = (high + low)/2
+
+while abs(ans**3 - x) >= epsilon:
+  print('low = ', low, 'high = ', high, 'ans = ', ans)
+  numguesses += 1
+  if ans**3 < x:
+    low = ans
+  else:
+    high = ans
+  ans = (high +low)/2
+print('numguesses = ', numguesses)
+print(ans, 'is close to the cube root of ', x)
