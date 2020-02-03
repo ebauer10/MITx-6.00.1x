@@ -1,0 +1,9 @@
+def gcdIter(a, b):
+  test = min(a, b)
+  while test > 0:
+    if a % test == 0 and b % test == 0:
+      return test
+    else:
+      test -= 1
+
+print(gcdIter(9,3)) 
