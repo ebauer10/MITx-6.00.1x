@@ -1,0 +1,7 @@
+def gcdRecur(a, b):
+  test = min(a, b)
+  while test > 0:
+    if a % test == 0 and b % test == 0:
+      return test
+    else:
+      test = gcdRecur(min(a,b), max(a,b) % min(a,b))
