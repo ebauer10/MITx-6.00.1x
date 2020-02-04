@@ -1,0 +1,16 @@
+def isIn(char, aStr):
+    '''
+    char: a single character
+    aStr: an alphabetized string
+    
+    returns: True if char is in aStr; False otherwise
+    '''
+    mid = len(aStr)//2
+    if not len(aStr):
+      return False
+    elif char == aStr[mid]:
+      return True
+    else:
+       isIn(char, aStr[:mid]) if char < aStr[mid] else isIn(char, aStr[mid+1:])
+
+print(isIn('b','aoaailehbvfbc'))
