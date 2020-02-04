@@ -8,9 +8,11 @@ def isIn(char, aStr):
     mid = len(aStr)//2
     if not len(aStr):
       return False
-    elif char == aStr[mid]:
-      return True
+    if char == aStr[mid]:
+      return True 
+    elif char < aStr[mid]:
+      return isIn(char, aStr[:mid])
     else:
-       isIn(char, aStr[:mid]) if char < aStr[mid] else isIn(char, aStr[mid+1:])
+      return isIn(char, aStr[mid+1:])
 
-print(isIn('b','aoaailehbvfbc'))
+print(isIn('b','abcdefijklmnopqrstuvwxyz'))
