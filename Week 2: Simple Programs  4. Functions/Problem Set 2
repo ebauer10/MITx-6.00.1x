@@ -1,0 +1,53 @@
+#Problem 1
+balance = 484
+annualInterestRate = 0.2
+monthlyPaymentRate = 0.04
+    
+for month in range(12):
+    minimumPayment = balance * monthlyPaymentRate
+    unpaidBalance = balance - minimumPayment
+    interest = (annualInterestRate/12.0) * unpaidBalance
+    balance = unpaidBalance + interest
+
+print("Remaining balance:", round(balance, 2))  
+
+#Problem 2
+balance = 3329
+annualInterestRate = 0.2
+payment = 10
+newbalance = balance
+    for month in range(12):
+    
+while balance > 0:
+        unpaidbalance = balance - payment
+        interest = (annualInterestRate/12)*unpaidbalance
+        balance = unpaidbalance + interest
+    if balance > 0:
+        payment += 10
+        balance = newbalance
+    elif balance <= 0:
+        break
+    
+print("Lowest Payment:", payment)  
+
+#Problem 3
+monthlyInterestRate = annualInterestRate/12
+lowerpayment = newbalance/12
+upperpayment = (newbalance * (1+monthlyInterestRate)**12)/12
+epsilon = 0.01
+    
+while abs(balance) > epsilon:
+    monthlyPaymentRate = (upperpayment + lowerpayment)/2
+    balance = newbalance
+    for month in range(12):
+        unpaidbalance = balance - monthlyPaymentRate
+        interest = monthlyInterestRate * unpaidbalance
+        balance = unpaidbalance + interest
+    if balance > epsilon:
+        lowerpayment = monthlyPaymentRate
+    elif balance < abs(epsilon):
+        upperpayment = monthlyPaymentRate
+    else:
+        break
+    
+print("Lowest Payment:", round(monthlyPaymentRate, 2))
