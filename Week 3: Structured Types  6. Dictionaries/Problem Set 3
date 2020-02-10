@@ -1,0 +1,93 @@
+#Problem 1
+
+#Please read the Hangman Introduction before starting this problem. 
+#We'll start by writing 3 simple functions that will help us easily code the Hangman problem. 
+#First, implement the function isWordGuessed that takes in two parameters - a string, secretWord, and a list of letters, lettersGuessed. 
+#This function returns a boolean - True if secretWord has been guessed (ie, all the letters of secretWord are in lettersGuessed) and False otherwise.
+
+#Example Usage:
+
+#>>> secretWord = 'apple' 
+#>>> lettersGuessed = ['e', 'i', 'k', 'p', 'r', 's']
+#>>> print(isWordGuessed(secretWord, lettersGuessed))
+#False
+
+secretWord = 'apple' 
+lettersGuessed = ['e', 'i', 'w', 'p', 'l', 'a']
+def isWordGuessed(secretWord, lettersGuessed):
+    '''
+    secretWord: string, the word the user is guessing
+    lettersGuessed: list, what letters have been guessed so far
+    returns: boolean, True if all the letters of secretWord are in lettersGuessed;
+      False otherwise
+    '''
+    # FILL IN YOUR CODE HERE...
+    
+    matchedChars = 0
+    for char in secretWord:
+      if char in lettersGuessed:
+        matchedChars += 1
+    if matchedChars == len(secretWord):
+      return True
+    else:
+      return False
+      
+#Problem 2
+ 
+#Next, implement the function getGuessedWord that takes in two parameters - a string, secretWord, and a list of letters, lettersGuessed.
+#This function returns a string that is comprised of letters and underscores, based on what letters in lettersGuessed are in secretWord. 
+#This shouldn't be too different from isWordGuessed!
+
+#Example Usage:
+
+#>>> secretWord = 'apple' 
+#>>> lettersGuessed = ['e', 'i', 'k', 'p', 'r', 's']
+#>>> print(getGuessedWord(secretWord, lettersGuessed))
+#'_ pp_ e'
+
+secretWord = 'apple' 
+lettersGuessed = ['e', 'i', 'w', 'r', 'l', 'a']
+def getGuessedWord(secretWord, lettersGuessed):
+    '''
+    secretWord: string, the word the user is guessing
+    lettersGuessed: list, what letters have been guessed so far
+    returns: string, comprised of letters and underscores that represents
+      what letters in secretWord have been guessed so far.
+    '''
+    # FILL IN YOUR CODE HERE...
+    
+    word = []
+    for char in secretWord:
+      if char in lettersGuessed:
+        word.append(char)
+      else:
+        word.append('_ ')
+    return ''.join(word)
+
+#Problem 3
+#Next, implement the function getAvailableLetters that takes in one parameter - a list of letters, lettersGuessed. 
+#This function returns a string that is comprised of lowercase English letters - all lowercase English letters that are not in lettersGuessed.
+
+#Example Usage:
+
+#>>> lettersGuessed = ['e', 'i', 'k', 'p', 'r', 's']
+#>>> print(getAvailableLetters(lettersGuessed))
+#abcdfghjlmnoqtuvwxyz
+
+import string
+alphabet = string.ascii_lowercase
+
+lettersGuessed = ['e', 'i', 'k', 'p', 'r', 's']
+def getAvailableLetters(lettersGuessed):
+    '''
+    lettersGuessed: list, what letters have been guessed so far
+    returns: string, comprised of letters that represents what letters have not
+      yet been guessed.
+    '''
+    # FILL IN YOUR CODE HERE...
+    
+    lettersLeft = []
+    for char in alphabet:
+      if char not in lettersGuessed:
+        lettersLeft.append(char)
+    return ''.join(lettersLeft)
