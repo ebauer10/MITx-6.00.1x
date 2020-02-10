@@ -1,0 +1,7 @@
+grades = {'Ana':'B', 'John':'A', 'Tim':'A'}
+grades['Sam'] = 'B'
+'John' in grades
+del(grades['Ana'])
+print(grades)
+print(grades.keys())
+print(grades.values())
