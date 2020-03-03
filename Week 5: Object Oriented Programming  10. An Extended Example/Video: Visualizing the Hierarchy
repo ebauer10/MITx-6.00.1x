@@ -1,0 +1,71 @@
+import datetime
+
+class Person(object):
+  def __init__(self, name):
+    """create a person called name"""
+    self.name = name
+    self.birthday = None
+    self.lastName = name.split(' ')[-1]
+
+  def getLastName(self):
+    """return self's last name"""
+    return self.lastName
+
+  def __str__(self):
+    """return self's name"""
+    return self.name
+
+  def setBirthday(self, month, day, year):
+    """sets self's birhtday to birthDate"""
+    self.birthday = datetime.date(year,month,day)
+
+  def getAge(self):
+    """returns self's current age in days"""
+    if self.birthday == None:
+      raise ValueError
+    return (datetime.date.today() - self.birthday).days
+
+  def __lt__(self, other):
+    """return True if self's name is lexicographically less than other's name, and False otherwise"""
+    if self.lastName == other.lastName:
+      return self.name < other.name
+    return self.lastName < other.lastName
+
+class MITPerson(Person):
+  nextIdNum = 0 #next ID to assign
+
+  def __init__(self, name):
+    Person.__init__(self, name) #initialize person attributes
+    self.idNum = MITPerson.nextIdNum #MITPerson attribute: unique id
+    MITPerson.nextIdNum += 1
+
+  def getIdNum(self):
+    return self.idNum
+
+  #sorting MIT people uses ID num
+  def __lt__(self, other):
+    return self.idNum < other.idNum
+
+  def speak(self, utterance):
+    return (self.getLastName() + " says: " + utterance)
+
+m3 = MITPerson('Mark Zuckerberg')
+Person.setBirthday(m3, 5, 14, 84)
+m2 = MITPerson('Drew Houston')
+Person.setBirthday(m2, 3, 4, 83)
+m1 = MITPerson('Bill Gates')
+Person.setBirthday(m1, 10, 28, 55)
+
+MITPersonList = [m1, m2, m3]
+for e in MITPersonList:
+  print(e)
+
+#sorting by ID
+MITPersonList.sort()
+for e in MITPersonList:
+  print(e)
+
+p1 = MITPerson('eric')
+p2 = MITPerson('john')
+p3 = MITPerson('john')
+p4 = Person('john')
