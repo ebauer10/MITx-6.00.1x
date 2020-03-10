@@ -1,0 +1,9 @@
+#linear search
+def linear_search(L, e):
+    found = False
+    for i in range(len(L)):
+        if e == L[i]:
+            found = True
+    return found
+    
+#O(len(L))*O(1)
